@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-pagify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate pagination data and metadata for Sails JS",
   "main": "index.js",
   "scripts": {
