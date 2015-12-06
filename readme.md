@@ -27,24 +27,35 @@ module.exports.pagify = {
 
 - [**STRING**] `dataKey`
 - [**OBJECT**] `options`
+    - [**OBJECT**] `findQuery` - Waterline query object. Default is {}.
+    - [**ARRAY**] `sort` - Default is [].
+    - [**ARRAY**] `populate`- Default is [].
+    - [**INTEGER**] `page` - Current page number. Default is 1.
+    - [**INTEGER**] `perPage` - Number of records per page. Default is 10.
 
 **Usage**
 
 Use it as a Model class method:
 
 ```javascript
-// Get Page 2 from the User Table where
+// Get Page 2 from the User Model where
 // user.name is like 'colin', sort by `createdAt DESC`
 // with pet field populated. 40 results per page.
 // Results will be wrapped in `users` key.
 User.pagify('users', {
     findQuery: {'name': {'like': '%colin%'}},
-    sort: ['createdAt DESC', ''],
+    sort: ['createdAt DESC'],
     populate: ['pet'],
     page: 2
     perPage: 40 // Overwrite the project-wide settings
+}).then(function(data){
+    // See Response Object Below
+}).catch(function(err){
+    // err.Errors contains the error messages
 });
 ```
+
+As you can see, `pagify` is a promise-returning method.
 
 **Response Object**
 ```json
@@ -64,3 +75,30 @@ User.pagify('users', {
     }
 }
 ```
+
+## Contributors:
+- [jiewmeng](https://github.com/jiewmeng)
+- [colintoh](https://github.com/colintoh)
+
+## MIT License
+Copyright (c) 2015 colintoh and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
