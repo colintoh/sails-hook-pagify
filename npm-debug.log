@@ -1,0 +1,96 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.13.3
+3 info using node@v0.12.3
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/ct_polar/Documents/projects/meclub/api/hooks/pagify',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package.tgz not in flight; packing
+9 verbose tar pack [ '/Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package.tgz',
+9 verbose tar pack   '/Users/ct_polar/Documents/projects/meclub/api/hooks/pagify' ]
+10 verbose tarball /Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package.tgz
+11 verbose folder /Users/ct_polar/Documents/projects/meclub/api/hooks/pagify
+12 info prepublish sails-hook-pagify@0.0.1
+13 verbose addLocalTarball adding from inside cache /Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package.tgz
+14 silly cache afterAdd sails-hook-pagify@0.0.1
+15 verbose afterAdd /Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package/package.json not in flight; writing
+16 verbose afterAdd /Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package/package.json written
+17 silly publish { name: 'sails-hook-pagify',
+17 silly publish   version: '0.0.1',
+17 silly publish   description: 'Generate pagination data and metadata for Sails JS',
+17 silly publish   main: 'index.js',
+17 silly publish   scripts: { test: 'mocha -R spec' },
+17 silly publish   author:
+17 silly publish    { name: 'Colin Toh',
+17 silly publish      email: 'colinnus@gmail.com',
+17 silly publish      url: 'http://colintoh.com/blog' },
+17 silly publish   license: 'ISC',
+17 silly publish   sails: { isHook: true },
+17 silly publish   devDependencies:
+17 silly publish    { chai: '^3.4.1',
+17 silly publish      faker: '^3.0.1',
+17 silly publish      sails: '~0.11.0',
+17 silly publish      'sails-disk': '^0.10.8',
+17 silly publish      supertest: '^1.1.0' },
+17 silly publish   dependencies: { q: '^1.4.1' },
+17 silly publish   readme: '# sails-hook-pagify\n\n## DEPENDENCY\n\n- Sails 0.11+\n\n## Installation\n\n```javascript\nnpm install -S sails-hook-pagify\n```\n\n## Configuration (Project-wide)\n\nCreate `pagify.js` in the `config` folder. Set `perPage` for the number of records fetched per page. The default is `10`.\n\n```javascript\nmodule.exports.pagify = {\n    perPage: 10\n}\n```\n## Method\n\n### pagify(dataKey, options)\n\n**Parameters**\n\n- [**STRING**] `dataKey`\n- [**OBJECT**] `options`\n    - [**OBJECT**] `findQuery` - Waterline query object. Default is {}.\n    - [**ARRAY**] `sort` - Default is [].\n    - [**ARRAY**] `populate`- Default is [].\n    - [**INTEGER**] `page` - Current page number. Default is 1.\n    - [**INTEGER**] `perPage` - Number of records per page. Default is 10.\n\n**Usage**\n\nUse it as a Model class method:\n\n```javascript\n// Get Page 2 from the User Model where\n// user.name is like \'colin\', sort by `createdAt DESC`\n// with pet field populated. 40 results per page.\n// Results will be wrapped in `users` key.\nUser.pagify(\'users\', {\n    findQuery: {\'name\': {\'like\': \'%colin%\'}},\n    sort: [\'createdAt DESC\'],\n    populate: [\'pet\'],\n    page: 2\n    perPage: 40 // Overwrite the project-wide settings\n}).then(function(data){\n    // See Response Object Below\n}).catch(function(err){\n    // err.Errors contains the error messages\n});\n```\n\nAs you can see, `pagify` is a promise-returning method.\n\n**Response Object**\n```json\n{\n    "users": [{\n        /* 40 or less results here */\n    }],\n    "meta": {\n        "paginate": {\n            "currentPage": 2,\n            "nextPage": null,\n            "prevPage": 1,\n            "totalPages": 2,\n            "totalCount": 80,\n            "perPage": 40\n        }\n    }\n}\n```\n\n## Contributors:\n- [jiewmeng](https://github.com/jiewmeng)\n- [colintoh](https://github.com/colintoh)\n\n## MIT License\nCopyright (c) 2015 colintoh and contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n\n\n',
+17 silly publish   readmeFilename: 'readme.md',
+17 silly publish   gitHead: 'f792723c8f6aa9aa3b2507a3b3470f67b31d5c79',
+17 silly publish   _id: 'sails-hook-pagify@0.0.1',
+17 silly publish   _shasum: '52d2d31408387d2ecd5b5d2d293422380e94555b',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name sails-hook-pagify
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/sails-hook-pagify
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /Users/ct_polar/.npm/sails-hook-pagify/0.0.1/package.tgz
+25 verbose request uri https://registry.npmjs.org/sails-hook-pagify
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 6:21:49 PM
+28 verbose request id 949a77edea16a18c
+29 http request PUT https://registry.npmjs.org/sails-hook-pagify
+30 http 403 https://registry.npmjs.org/sails-hook-pagify
+31 verbose headers { 'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=60',
+31 verbose headers   'content-length': '95',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   date: 'Sun, 06 Dec 2015 10:21:51 GMT',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   connection: 'keep-alive',
+31 verbose headers   'x-served-by': 'cache-sin6927-SIN',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1449397310.375371,VS0,VE830' }
+32 verbose request invalidating /Users/ct_polar/.npm/registry.npmjs.org/sails-hook-pagify on PUT
+33 error publish Failed PUT 403
+34 verbose stack Error: "You cannot publish over the previously published version 0.0.1." : sails-hook-pagify
+34 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+34 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+34 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+34 verbose stack     at Request.emit (events.js:110:17)
+34 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1057:14)
+34 verbose stack     at Request.emit (events.js:129:20)
+34 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1003:12)
+34 verbose stack     at IncomingMessage.emit (events.js:129:20)
+34 verbose stack     at _stream_readable.js:908:16
+34 verbose stack     at process._tickCallback (node.js:355:11)
+35 verbose statusCode 403
+36 verbose pkgid sails-hook-pagify
+37 verbose cwd /Users/ct_polar/Documents/projects/meclub/api/hooks/pagify
+38 error Darwin 13.4.0
+39 error argv "node" "/usr/local/bin/npm" "publish"
+40 error node v0.12.3
+41 error npm  v2.13.3
+42 error code E403
+43 error "You cannot publish over the previously published version 0.0.1." : sails-hook-pagify
+44 error If you need help, you may report this error at:
+44 error     <https://github.com/npm/npm/issues>
+45 verbose exit [ 1, true ]
