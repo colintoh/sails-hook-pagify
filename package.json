@@ -11,6 +11,10 @@
   "sails": {
     "isHook": true
   },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/colintoh/sails-hook-pagify"
+  },
   "devDependencies": {
     "chai": "^3.4.1",
     "faker": "^3.0.1",
