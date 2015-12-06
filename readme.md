@@ -1,5 +1,9 @@
 # sails-hook-pagify
 
+**Who need this?**
+- API-driven server that needs to support mobile application features like infinite list loading
+- Any page that needs metadata (*next, prev, currentpage, totalCount etc..*) to constuct the pagination UI.
+
 ## DEPENDENCY
 
 - Sails 0.11+
