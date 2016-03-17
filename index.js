@@ -8,7 +8,7 @@ var pagify = require(path.join(libPath, 'pagify'));
 module.exports = function(sails){
 
     function patch(context){
-        _(sails.models).forEach(function(model){
+        _.forEach(sails.models, function(model){
 
             // Add pagify method to all models. Ignoring associative tables
             if(model.globalId){
